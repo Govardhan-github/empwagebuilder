@@ -6,15 +6,17 @@ public class Empchecking {
 	public static final int IS_FULL_TIME = 2;
 	public static final int EMP_RATE_PER_HR = 20;
 	public static final int NO_OF_WORKING_DAYS = 20;
+	public static final int MAX_NO_HRS = 100;
 	
 	public static void main(String[] args) 
 	{
 	int emphrs=0;
-	int empwage=0;
-	int totalEmpwage=0;
+	int totalemphrs=0;
+	int totalworkingdays=0;
 	System.out.println("welcome to the Empwagebuild programme");
 	//Computation
-	for ( int day = 0; day < NO_OF_WORKING_DAYS; day++) {
+	while ( totalemphrs <= MAX_NO_HRS && totalworkingdays < NO_OF_WORKING_DAYS) {
+		totalworkingdays++;
 	int empcheck = (int) Math.floor(Math.random() * 10) % 3;
 	switch (empcheck) {
 	 	case IS_FULL_TIME:
@@ -26,12 +28,18 @@ public class Empchecking {
 		default:
 			emphrs=0;
 	}
-	empwage = emphrs * EMP_RATE_PER_HR;
-	totalEmpwage += empwage;
-	
-	System.out.println("Emp wage:" +empwage);
+	totalemphrs=emphrs;
+	System.out.println("Days:" + totalworkingdays + "emphr: " +emphrs);
 	}
-System.out.println("Total Emp Wage: " +totalEmpwage);
+	int totalempwage = totalemphrs * EMP_RATE_PER_HR;
+	System.out.println("total emp wage:" +totalempwage);
+	
+	//empwage = emphrs * EMP_RATE_PER_HR;
+	//totalEmpwage += empwage;
+	
+	//System.out.println("Emp wage:" +empwage);
+	}
+//System.out.println("Total Emp Wage: " +totalEmpwage);
 
 	}
-}
+
