@@ -6,24 +6,23 @@ public class Empchecking {
 	 */
 	
 	//constants
-	public static final int IS_PART_TIME = 1 ;
-	public static final int IS_FULL_TIME = 2;
-	public static final int EMP_RATE_PER_HR = 20;
-	public static final int NO_OF_WORKING_DAYS = 20;
-	public static final int MAX_NO_HRS = 100;
+	public static final int IS_PART_TIME = 0 ;
+	public static final int IS_FULL_TIME = 1;
+
 	/*
 	 * Declaring Method To Calculate EmpWage
 	 */
-	public static int computeEmpWage() 
+	public static int computeEmpWage(String company, int empRatePerHr, int numOfWorkingDays, int maxHoursPerMonth) 
+	
 	{
 	int emphrs=0;
 	int totalemphrs=0;
 	int totalworkingdays=0;
 	System.out.println("welcome to the Empwagebuild programme");
 	//While Condition To Calculate Total EmpWage
-	while ( totalemphrs <= MAX_NO_HRS && totalworkingdays < NO_OF_WORKING_DAYS) {
+	while ( totalemphrs <= maxHoursPerMonth && totalworkingdays < numOfWorkingDays) {
 		totalworkingdays++;
-	int empcheck = (int) Math.floor(Math.random() * 10) % 3;
+	int empcheck = (int) Math.floor(Math.random() * 10) % 2;
 	switch (empcheck) {
 	 	case IS_FULL_TIME:
 			emphrs=8;
@@ -37,8 +36,8 @@ public class Empchecking {
 	totalemphrs=emphrs;
 	System.out.println("Days:" + totalworkingdays + "emphr: " +emphrs);
 	}
-	int totalempwage = totalemphrs * EMP_RATE_PER_HR;
-	System.out.println("total emp wage:" +totalempwage);
+	int totalempwage = totalemphrs * empRatePerHr;
+	System.out.println("Total Emp Wage For Company: " +company+" is : " +totalempwage);
 	return totalempwage;
 	}
 	/*
@@ -46,6 +45,7 @@ public class Empchecking {
 	 * Calling ComputeEmpWage Method Here
 	 */
 	public static void main(String[] args) {
-		computeEmpWage();
+		computeEmpWage("Dmart",20,20,50);
+		computeEmpWage("Relaince",30,40,70);
 	}
 }
